@@ -162,7 +162,152 @@ select left("hello", 2);
 select right("hello",3);
 
 
+-- use database
+use org;
+show tables;
+
+select* from employee;
+
+-- Write an SQL query to fetch unique values of DEPARTMENT from Worker table.
+select distinct department from employee;
+
+select department from employee group by department;
 
 
+
+select * from employee;
+-- asending and desending order
+select * from employee order by first_name ;
+select * from employee order by first_name desc;
+
+-- q-5 sort data by marks
+-- select * from student order by marks
+
+-- limit, off set
+
+-- find  highest salary
+select salary from employee order by salary desc limit 1;
+select salary from employee order by salary desc limit 2,3 ;
+
+
+-- Wild card Searching
+select * from employee where first_name like 'V%';
+
+select * from employee where first_name like "_______%";
+
+SELECT * FROM employee 
+WHERE first_name LIKE 'A%' 
+   OR first_name LIKE 'V%' 
+   OR first_name LIKE 'M%';
+   
+--   ^ {}
+
+-- Update command
+select * from employee;
+update employee set salary = 100000 where worker_id = 2;
+
+-- delete and truncate
+
+-- syntax - delete from table_name where condition
+set sql_safe_updates= 0;
+delete from student where id=1;
+
+select* from student;
+set sql_safe_updates= 1;
+
+delete from student;
+
+truncate table student; -- delete whole record
+drop table student;
+
+show tables;
+
+-- drop database
+create database dummy;
+drop database if exists dummy;
+
+
+
+
+-- Alter command
+
+
+
+
+-- aggregate function
+
+
+-- find minimum salary from every department
+
+-- select full name where salary between 50000 and 100000
+
+
+
+select curdate();
+select now();
+
+
+
+
+
+-- ALter
+
+CREATE TABLE Persons (
+    ID int NOT NULL ,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+);
+
+
+
+--- add clumnn
+
+alter table Persons add SALARY bigint(9);
+select *  from persons;
+alter table Persons add AADHAR bigint(12) NOT NULL;
+
+select * from Persons;
+
+
+-- delete column - alter table table_name drop col1,col2;
+alter table Persons drop SALARY;
+select * from persons;
+
+-- Rename Column
+alter table Persons rename column aadhar to aadhar_number;
+
+alter table Persons add SALARY bigint(9);
+--
+alter table Persons modify SALARY text; -- modify the data type
+
+alter table Persons drop EMP_SALARY;
+
+
+alter table Persons add PAN int first;
+
+select * from Persons;
+
+-- add constraint
+
+alter table persons add  check(age>=18);
+
+select * from persons;
+
+insert into persons values(1234,3,"ryr", "sax",23,14234555,133);
+
+alter table Persons alter age set default 21;
+
+alter table Persons add constraint unique (FirstName);
+
+alter table Persons add constraint pk_primary primary key(age,ID);
+
+
+alter table Persons add constraint new_name unique (FirstName);
+
+
+
+alter table Persons add SALARY int(15);
 
 
